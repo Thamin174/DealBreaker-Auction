@@ -1,0 +1,36 @@
+﻿@model DealBreaker.Entities.Auction
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+<form method="post">
+    <input name="Id" type="hidden" value="@Model.Id" />
+    <div class="form-group">
+        <label>Title</label>
+        <input class="form-control" name="Title" value="@Model.Title"/>
+    </div>
+
+    <div class="form-group">
+        <label>Description</label>
+        <input class="form-control" name="Description" value="@Model.Description"/>
+    </div>
+
+    <div class="form-group">
+        <label>Actual Amount</label>
+        <input class="form-control" name="ActualAmount" value="@Model.ActualAmount"/>
+    </div>
+
+    <div class="form-group">
+        <label>Sarting time</label>
+        <input class="form-control" name="StratingTime" value="@Model.StratingTime"/>
+    </div>
+
+    <div class="form-group">
+        <label>EndingTime</label>
+        <input class="form-control" name="EndingTime" value="@Model.EndingTime""/>
+    </div>
+
+    <button type="submit" class="btn btn-success">Save</button>
+</form>

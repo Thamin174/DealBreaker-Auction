@@ -1,0 +1,36 @@
+﻿@model List<DealBreaker.Entities.Auction>
+@{
+    ViewBag.Title = "Listing";
+}
+
+<h2>Listing</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Description</th>
+            <th>Actual Amount</th>
+            <th>Starting Time</th>
+            <th>Ending Time</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var auction in Model)
+        {
+        <tr>
+            <td>@auction.Title</td>
+            <td>@auction.Description</td>
+            <td>@auction.ActualAmount</td>
+            <td>@auction.StratingTime</td>
+            <td>@auction.EndingTime</td>
+            <td>
+                <a class="btn btn-info" href="@Url.Action("Edit","Auctions", new { Id = auction.Id})">Edit</a>
+                <a class="btn btn-danger" href="@Url.Action("Delete","Auctions", new { Id = auction.Id})">Delete</a>
+            </td>
+        </tr>   
+        }
+    </tbody>
+</table>
+
