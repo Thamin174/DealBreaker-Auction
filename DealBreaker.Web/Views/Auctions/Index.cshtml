@@ -1,0 +1,30 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+<button class="btn btn-success" id="createButton">Create Auction</button>
+
+<div id="listingArea">
+    @{
+        Html.RenderAction("Listing");
+    }
+</div>
+
+<div id="contentArea">
+
+</div>
+
+<script>
+    $("#createButton").click(function () {
+        $.ajax({
+            url: "@Url.Action("Create","Auctions")",
+            type: "get"
+        })
+            .done(function (response) {
+                $("#contentArea").html(response);
+            })
+    })
+</script>

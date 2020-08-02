@@ -240,6 +240,7 @@
     <Content Include="Views\Auctions\Listing.cshtml" />
     <Content Include="Views\Auctions\Edit.cshtml" />
     <Content Include="Views\Auctions\Delete.cshtml" />
+    <Content Include="Views\Auctions\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

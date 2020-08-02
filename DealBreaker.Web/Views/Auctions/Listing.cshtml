@@ -26,11 +26,41 @@
             <td>@auction.StratingTime</td>
             <td>@auction.EndingTime</td>
             <td>
-                <a class="btn btn-info" href="@Url.Action("Edit","Auctions", new { Id = auction.Id})">Edit</a>
-                <a class="btn btn-danger" href="@Url.Action("Delete","Auctions", new { Id = auction.Id})">Delete</a>
+                <button class="editButton btn btn-info" data-id="@auction.Id" >Edit</button>
+                <button class="deleteButton btn btn-danger" data-id="@auction.Id">Delete</button>
             </td>
         </tr>   
         }
     </tbody>
 </table>
 
+<script>
+    $(".editButton").click(function () {
+        $.ajax({
+            url: "@Url.Action("Edit","Auctions")",
+            type: "get",
+            data: {
+                Id: $(this).attr("data-id")
+            }
+        })
+            .done(function (response) {
+                $("#contentArea").html(response);
+            })
+    })
+
+    $(".deleteButton").click(function () {
+         var result = confirm("Are you sure to delete?")
+        if (result == true) {
+            $.ajax({
+                url: "@Url.Action("Delete","Auctions")",
+                method: "post",
+                data: {
+                    ID: $(this).attr("data-id")
+                }
+            })
+                .done(function (response) {
+                    $("#listingArea").html(response);
+                })
+        }
+    })
+</script>
